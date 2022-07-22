@@ -12,20 +12,19 @@ import useFetchScores from "../../lib/useFetchScores"
     <Layout>
         {error ? (error) : (
           <>
-           
-              <div>
+            <div>
                 <h2>{data?.name ? (<>Golfer`s name: {data?.name} </>) : (<>undefined</>)} </h2>
                 {data?.scores?.map(score => (
-                  <ScoreCard
-                    key={score.id}
-                    id={score.id}
-                    totalScore={score.total_score}
-                    playedAt={score.played_at}
-                    userId={score.user_id}
-                    userName={data.name}
-                  />
+                    <ScoreCard
+                        key={score.id}
+                        id={score.id}
+                        totalScore={score.total_score}
+                        playedAt={score.played_at}
+                        userId={score.user_id}
+                        userName={data.name}
+                    />
                 ))}
-              </div>
+            </div>
           </>
         )}
     </Layout>
