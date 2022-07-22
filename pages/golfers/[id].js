@@ -10,13 +10,12 @@ import useFetchScores from "../../lib/useFetchScores"
 
    return (
     <Layout>
-      <>
         {error ? (error) : (
           <>
            
               <div>
                 <h2>{data?.name ? (<>Golfer`s name: {data?.name} </>) : (<>undefined</>)} </h2>
-                {data?.scores && data?.scores?.map(score => (
+                {data?.scores?.map(score => (
                   <ScoreCard
                     key={score.id}
                     id={score.id}
@@ -27,11 +26,8 @@ import useFetchScores from "../../lib/useFetchScores"
                   />
                 ))}
               </div>
-           
-
           </>
         )}
-      </>
     </Layout>
   )
  }
