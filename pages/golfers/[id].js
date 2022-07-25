@@ -22,6 +22,7 @@ import useFetchScores from "../../lib/useFetchScores"
                         playedAt={score.played_at}
                         userId={score.user_id}
                         userName={data.name}
+                        number_holes={score.number_of_holes}
                     />
                 ))}
             </div>
