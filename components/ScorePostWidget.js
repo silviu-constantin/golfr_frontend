@@ -13,16 +13,17 @@ const ScorePostWidget = () => {
 
   const [ totalScore, setTotalScore ] = useState(80)
   const [ playedAt, setPlayedAt ] = useState(TODAY)
+  const [ numberHoles, setNumberHoles ] = useState(9)
 
   const { postScore } = useScorePost()
 
   const onSubmit = useCallback(
     e => {
       e.preventDefault()
-      postScore(totalScore, playedAt)
+      postScore(totalScore, playedAt, numberHoles)
       setOpen(false)
     },
-    [ totalScore, playedAt, postScore ]
+    [ totalScore, playedAt, numberHoles, postScore ]
   )
 
   return (
@@ -44,7 +45,7 @@ const ScorePostWidget = () => {
                 name="total_score"
                 value={totalScore}
                 onChange={e => setTotalScore(e.target.value)}
-                min="20" max="140"
+                min="27" max="180"
                 className="form-input h-8 w-20 ml-3 my-2"
               />
             </div>
@@ -57,6 +58,17 @@ const ScorePostWidget = () => {
                 onChange={e => setPlayedAt(e.target.value)}
                 max={TODAY}
                 className="form-input h-8 ml-3 my-2"
+              />
+            </div>
+            <div>
+              Number Hole
+              <input
+                type="number"
+                name="number_holes"
+                value={numberHoles}
+                step="9" min="9" max="18"
+                onChange={e => setNumberHoles(e.target.value)}
+                className="form-input h-8 w-20 ml-3 my-2"
               />
             </div>
             <button className="w-40 p-1 my-2 bg-gray-200 rounded-lg">
